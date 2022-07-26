@@ -2,22 +2,22 @@
 
 package com.pranay;
 
-public class ceilingNumber {
-    // Question : Find the ceiling of a number
-    // Ceiling => find the smallest element in array which is greater than or equal to target element.
-    // Condition => if target is not present in array, then return element which is greater than target.
+public class floorNumber {
+
+    // Question : Find the floor of a number
+    // Ceiling => find the greatest element in array which is smaller than or equal to target element.
+    // Condition => if target is not present in array, then return element which is smaller than target.
 
     public static void main(String[] args) {
 
         int[] arr = {2,3,5,9,14,16,18,20}; //sorted array : approach binary search
-        System.out.print(ceiling(arr,15));
+        System.out.print(floor(arr,1));
 
     }
 
-    static int ceiling(int[] arr, int target){
+    static int floor(int[] arr, int target){
 
-
-        if(target > arr[arr.length-1]){     // if target is last element in array
+        if(target < arr[0]){     // if target is last element in array
             return -1;
         }
 
@@ -38,8 +38,8 @@ public class ceilingNumber {
             }
         }
 
-        return arr[start];
+        return arr[end];
     }
-
 //    TIME COMPLEXITY : O(N)
+
 }

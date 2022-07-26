@@ -20,20 +20,65 @@ All the integers in nums appear only once except for precisely one integer which
 
 package com.pranay;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class duplicateNumber {
     public static void main(String[] args) {
-        int[] nums = {3,1,3,4,2};   //{0,1,2,1,1)
+        int[] nums = {1,3,3,4,2,2};   //{0,1,2,1,1)
 
-        System.out.print(findDuplicate(nums));
+        System.out.print(duplicates(nums, nums.length));
+
 
     }
-    public static int findDuplicate(int[] nums){
-        int max = nums[0];  //max = 3;
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] > max)
-                max = nums[i];
+//    public static int findDuplicate(int[] nums){
+//        int max = nums[0];  //max = 3;
+//        for (int i = 1; i < nums.length; i++) {
+//            if (nums[i] > max)
+//                max = nums[i];
+//        }
+//
+//        //max = 4
+//
+//        int[] count = new int[max + 1]; //4 + 1 = 5 => count[5]
+//
+//        // Initialize count array with all zeros.
+//        for (int i = 0; i < max; ++i) { //
+//            count[i] = 0;
+//        }
+//
+//        // Store the count of each element
+//        for (int i = 0; i < nums.length; i++) {
+//            count[nums[i]]++;
+//        }
+//
+//        int maxCount = count[0];
+//        for (int i=0;i<count.length;i++){
+//            if(count[i] > maxCount){
+//                maxCount = count[i];
+//            }
+//        }
+//
+//        int ans = 0;
+//        for (int i=0;i<count.length;i++){
+//            if(maxCount == count[i]){
+//                ans = i;
+//            }
+//        }
+//
+//        return ans;
+//    }
+
+
+    public static ArrayList<Integer> duplicates(int arr[], int n) {
+
+        // code here
+        ArrayList<Integer> list = new ArrayList<>();
+
+        int max = arr[0];  //max = 3;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max)
+                max = arr[i];
         }
 
         //max = 4
@@ -46,24 +91,24 @@ public class duplicateNumber {
         }
 
         // Store the count of each element
-        for (int i = 0; i < nums.length; i++) {
-            count[nums[i]]++;
+        for (int i = 0; i < arr.length; i++) {
+            count[arr[i]]++;
         }
-        
+
         int maxCount = count[0];
         for (int i=0;i<count.length;i++){
             if(count[i] > maxCount){
                 maxCount = count[i];
             }
         }
-        
-        int ans = 0;
-        for (int i=0;i<count.length;i++){
-            if(maxCount == count[i]){
-                ans = i;
+
+        for(int i=0;i<count.length;i++){
+            if(count[i] > 1 && list.get(i)!=count[i]){
+                list.add(count[i]);
             }
         }
-        
-        return ans;
+
+        return list;
     }
+
 }
