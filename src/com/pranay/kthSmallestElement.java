@@ -23,9 +23,7 @@ Expected Time Complexity: O(n)
 
 package com.pranay;
 
-import java.util.Arrays;
-
-public class kthElement {
+public class kthSmallestElement {
     public static void main(String[] args) {
         int[] arr = {7,10,4,3,20,15};
         System.out.print(kthSmallest(arr, 0, arr.length - 1, 3));

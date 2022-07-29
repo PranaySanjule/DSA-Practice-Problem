@@ -25,10 +25,10 @@ import java.util.Arrays;
 
 public class duplicateNumber {
     public static void main(String[] args) {
-        int[] nums = {1,3,3,4,2,2};   //{0,1,2,1,1)
+
+        int[] nums = {1,2,4,1,5,4,3,2,1,6,7,8,9,2,20,4,6,25,10,11,12,25};   //{0,1,2,1,1)
 
         System.out.print(duplicates(nums, nums.length));
-
 
     }
 //    public static int findDuplicate(int[] nums){
@@ -73,42 +73,19 @@ public class duplicateNumber {
     public static ArrayList<Integer> duplicates(int arr[], int n) {
 
         // code here
-        ArrayList<Integer> list = new ArrayList<>();
-
-        int max = arr[0];  //max = 3;
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] > max)
-                max = arr[i];
-        }
-
-        //max = 4
-
-        int[] count = new int[max + 1]; //4 + 1 = 5 => count[5]
-
-        // Initialize count array with all zeros.
-        for (int i = 0; i < max; ++i) { //
-            count[i] = 0;
-        }
-
-        // Store the count of each element
-        for (int i = 0; i < arr.length; i++) {
-            count[arr[i]]++;
-        }
-
-        int maxCount = count[0];
-        for (int i=0;i<count.length;i++){
-            if(count[i] > maxCount){
-                maxCount = count[i];
+        Arrays.sort(arr);
+        ArrayList<Integer> list = new ArrayList();
+        for(int i=0;i<arr.length-1;i++){
+            if(arr[i]==arr[i+1]){
+                list.add(arr[i]);
             }
         }
-
-        for(int i=0;i<count.length;i++){
-            if(count[i] > 1 && list.get(i)!=count[i]){
-                list.add(count[i]);
-            }
+        if(list.isEmpty()){
+            list.add(-1);
         }
 
         return list;
     }
 
+    // Note : Code is not completed now.
 }
