@@ -16,7 +16,6 @@ public class ceilingNumber {
 
     static int ceiling(int[] arr, int target){
 
-
         if(target > arr[arr.length-1]){     // if target is last element in array
             return -1;
         }

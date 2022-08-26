@@ -14,12 +14,14 @@ public class kadanesAlgorithm {
 
         for(int i=0;i<arr.length;i++){
             curSum = curSum + arr[i];
+
             if(curSum > maxSum){
                 maxSum = curSum;
             }
             if(curSum < 0){
                 curSum = 0;
             }
+
         }
 
         // logic for negative array
